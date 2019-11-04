@@ -1,0 +1,74 @@
+<!--
+  Generated template for the DoctorProfilePage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+  <ion-navbar>
+    <ion-title>Doctor-profile</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-grid>
+  <ion-row>
+  <ion-col size="6">
+  <img class="protrait" src={{doctor.picture}}/>
+  {{getDoctorReview(doctor.id)}}<ion-icon name="star-outline"></ion-icon>
+  </ion-col>
+  <ion-col size="3">
+      {{doctor.name}}
+      <div class="scroll" scrollX="true">
+    <p class="sub" *ngFor="let spec of doctor.specialties">{{spec}},</p>
+    </div>
+  <p class="sub">{{doctor.language}}</p>
+  </ion-col>
+  <ion-col size="2">
+  <p class="sub">{{doctor.rate}}/hr</p>
+  </ion-col>
+  </ion-row>
+  </ion-grid>
+    <p>About Me:</p>
+    <p>{{doctor.description}}</p>
+    <hr>
+    <ion-item>
+      <span class="spc" *ngFor="let spec of doctor.specialties">{{spec}}</span>
+    </ion-item>
+    <ion-item>
+      <ion-grid>
+        <ion-row>
+          <ion-col size='2'><ion-icon class="cnct" name="chatbubbles"></ion-icon>Chat</ion-col>
+          <ion-col size='5'><ion-icon class="cnct" name="videocam"></ion-icon>Video Call</ion-col>
+          <ion-col size='5'><ion-icon class="cnct" name="call"></ion-icon>Audio Call</ion-col>
+        </ion-row>
+      </ion-grid>
+    </ion-item>
+    <ion-item>
+          <ion-label>{{freeSched.length}} slots available</ion-label>
+        <ion-select class="selectTime" [(ngModel)]="time" (ionChange)="setAppDate(time)">
+          <ion-option value="tod">today</ion-option>
+          <ion-option value="tom">tomorrow</ion-option>
+        </ion-select>
+    </ion-item>
+    <span class="topRev">All sessions are 1 hour long</span>
+    <div *ngIf="freeSched">
+      <ion-list radio-group>
+        <ion-item *ngFor="let av of freeSched">
+          <ion-label>{{av}}:00</ion-label>
+        <ion-radio (ionSelect)="setApTime(av)"></ion-radio>
+      </ion-item>
+      </ion-list>
+    </div>
+    <hr>
+    Reviews({{getReviewNumber(doctor.id)}})
+    <div *ngFor="let rev of docReviews">
+      <span class="topRev">by {{rev.user}} - {{rev.location}} {{rev.score}}<ion-icon name="star-outline"></ion-icon></span>
+      <p class="coreRev">{{rev.text}}</p>
+      <span class="botRev">{{rev.date}}</span>
+      <hr>
+    </div>
+    <ion-item>
+      <button class="submitBook" [disabled]="available === ''" (click)="finalizeBook()">Book an appointment</button>
+    </ion-item>
+</ion-content>

@@ -1,0 +1,20 @@
+export let appointments = [
+    {
+      "id":0,
+      "date":"11/01/2019",
+      "starting":[10,13,12],
+      "doctor":0
+    },
+    {
+      "id":3,
+      "date":"12/01/2019",
+      "starting":[11,9],
+      "doctor":1
+    },
+    {
+      "id":6,
+      "date":"11/01/2019",
+      "starting":[11],
+      "doctor":6
+    }
+  ];

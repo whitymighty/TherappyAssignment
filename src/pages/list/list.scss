@@ -1,0 +1,32 @@
+page-list {
+.protrait{
+  border-radius: 50%;
+  width: 90px;
+  height: 80px;
+}
+div[scrollx=true] {
+  position: relative;
+  overflow: hidden;
+  overflow-x: hidden;
+  overflow-y: hidden;
+}
+
+div[scrollx=true] {
+  overflow-x: auto;
+    white-space: nowrap;
+}
+
+div[scrolly=true] {
+  overflow-y: auto;
+}
+.docCard{
+  border-radius: 4%;
+}
+.sub{
+  font-size: 12px;
+  color: #999999;
+}
+.booking{
+  color: #0086ff;
+}
+}

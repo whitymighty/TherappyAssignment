@@ -1,0 +1,69 @@
+<!--
+  Generated template for the PaymentPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+  <ion-navbar>
+    <ion-title>payment</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-card class="docCard">
+    <ion-grid>
+      <ion-row>
+        <ion-col>
+          <b>Appointment Details</b>
+        </ion-col>
+        <ion-col>
+
+        </ion-col>
+        <ion-col>
+          <span class="blue">CHANGE</span>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+    <ion-grid>
+  <ion-row>
+  <ion-col text-center size="6">
+  <img class="protrait" src={{doctor.picture}}/>
+  </ion-col>
+  <ion-col>
+    {{doctor.name}}
+  </ion-col>
+  <ion-col text-center size="2">
+    <p class="sub">{{doctor.rate}}<span class="grey">/hr</span></p>
+  </ion-col>
+  </ion-row>
+  </ion-grid>
+  <ion-card-content>
+  <ion-grid>
+    <ion-row>
+      <ion-col>
+        <ion-icon name="calendar"></ion-icon> <span class="grey">{{today | date: "yyyy/MM/dd"}}</span>
+      </ion-col>
+      <ion-col>
+        <ion-icon name="time"></ion-icon> <span class="grey">{{apo.time}}:00</span>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+  </ion-card-content>
+  </ion-card>
+  Payment Details
+  <ion-item>
+      1 hour session <span text-right class="right"></span>{{doctor.rate}}QR
+  </ion-item>
+  <ion-item>
+  Total Amount <span class="blue right">{{doctor.rate}}QR</span>
+</ion-item>
+  <span class="grey">One session will be deducted from your Package if you choose the package payment method</span>
+  <ion-item>
+  <ion-label>Choose Payment Method</ion-label>
+<ion-select>
+  <ion-option value="tod">Cash</ion-option>
+  <ion-option value="tom">Package</ion-option>
+</ion-select>
+</ion-item>
+</ion-content>
